@@ -7,9 +7,9 @@
 <p>-i INTERFACE, --interface=INTERFACE</p>
 <p>Interface to change its MAC address</p>
 <p>-t TIMES, --times=TIMES</p>
-<p>How many times will the ip address and mac address</p>
+<p>How many times will the IP address and MAC address</p>
 <p>change</p>
-<p>-w WAIT, --wait=WAIT  How soon will there be a change address and mac</p>
+<p>-w WAIT, --wait=WAIT  After how many seconds should it change IP address and MAC address</p>
 <p>address</p>                  
 <p>How to use tools</p>
 <p>python3 mac_changer.py -i eth0 -t 10 -w 10</p>
