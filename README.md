@@ -1,4 +1,4 @@
-<h1>Mac Changer</h1>
+<h1>Random Mac Changer</h1>
 
 <p>How to use tools</p>
 <p>python mac_changer.py -i eth0 </p>
