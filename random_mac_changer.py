@@ -49,7 +49,7 @@ def get_current_ipv4(interface):
 
 options = get_arguments()
 
-for i in range(1, int(options.times)-1):
+for i in range(1, int(options.times)+1):
     print("Trial " + str(i))
     current_mac = get_current_mac(options.interface)
     print("Current MAC = " + str(current_mac))
@@ -63,6 +63,10 @@ for i in range(1, int(options.times)-1):
     else:
         print("[-] MAC address did not changed. ")
 
+    current_ipaddress = get_current_ipv4(options.interface)
+    print("Current IPAddress = " + str(current_ipaddress))
+    print("-------------------WAITING" +" "+str(options.wait)+" "+"Seconds-------------------------------")
+    time.sleep(int(options.wait))
     current_ipaddress = get_current_ipv4(options.interface)
     print("Current IPAddress = " + str(current_ipaddress))
     print("-------------------WAITING" +" "+str(options.wait)+" "+"Seconds-------------------------------")
