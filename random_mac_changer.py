@@ -15,8 +15,8 @@ def rand_mac_generator():
 def get_arguments():
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface", help="Interface to change its MAC address")
-    parser.add_option("-t", "--times", dest="times",help="How many times will the ip address and mac address change")
-    parser.add_option("-w", "--wait", dest="wait", help="How soon will there be a change address and mac address")
+    parser.add_option("-t", "--times", dest="times",help="How many times will the IP address and MAC address change")
+    parser.add_option("-w", "--wait", dest="wait", help="After how many seconds should it change IP address and MAC address")
     (options, arguments) = parser.parse_args()
     if not options.interface:
         parser.error("[-] Please specify an interface, use --help for more info.")
