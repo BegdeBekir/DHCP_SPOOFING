@@ -1,5 +1,17 @@
 <h1>Random Mac Changer</h1>
 
+<p>python3 mac_changer.py --help<p>
+Usage: mac_changer.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -i INTERFACE, --interface=INTERFACE
+                        Interface to change its MAC address
+  -t TIMES, --times=TIMES
+                        How many times will the ip address and mac address
+                        change
+  -w WAIT, --wait=WAIT  How soon will there be a change address and mac
+                        address
 <p>How to use tools</p>
 <p>python3 mac_changer.py -i eth0 -t 10 -w 10</p>
 <p>python mac_changer.py -i eth0 -t 10 -w 10 </p>
