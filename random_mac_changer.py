@@ -11,7 +11,6 @@ def rand_mac_generator():
     example_mac = "00:00:00:00:00:00"
     generated_mac = RandMac(example_mac)
     return generated_mac
-
 def get_arguments():
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface", help="Interface to change its MAC address")
@@ -35,9 +34,19 @@ def get_current_mac(interface):
     else:
         print("[-] Could not read MAC address.")
 
+def get_current_ipv4(interface):
+    ifconfig_result = subprocess.check_output(["ifconfig",interface])
+    ip_address_search_result = re.search(r"\d\d\d.\d\d\d.\d\d.\d\d\d",str(ifconfig_result))
+
+    if ip_address_search_result:
+        return ip_address_search_result.group(0)
+    else:
+        print("[-] Could not read IP address.")
+
 
 options = get_arguments()
 current_mac = get_current_mac(options.interface)
+
 print("Current MAC = " + str(current_mac))
 
 generated_mac = rand_mac_generator()
@@ -49,3 +58,6 @@ if current_mac == str(generated_mac):
     print("[+] MAC address was successfully changed to : " + current_mac)
 else:
     print("[-] MAC address did not changed. ")
+
+current_ipaddress = get_current_ipv4(options.interface)
+print("Current IPAddress = " + str(current_ipaddress))
