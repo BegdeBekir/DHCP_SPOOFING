@@ -16,7 +16,7 @@ def get_arguments():
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface", help="Interface to change its MAC address")
     parser.add_option("-t", "--times", dest="times",help="How many times will the IP address and MAC address change")
-    parser.add_option("-w", "--wait", dest="wait", help="After how many seconds should it change IP address and MAC address")
+    parser.add_option("-w", "--wait", dest="wait", help="How many seconds should it change IP address and MAC address")
     (options, arguments) = parser.parse_args()
     if not options.interface:
         parser.error("[-] Please specify an interface, use --help for more info.")
@@ -49,7 +49,8 @@ def get_current_ipv4(interface):
 
 options = get_arguments()
 
-for i in range(0, int(options.times)):
+for i in range(1, int(options.times)-1):
+    print("Trial " + str(i))
     current_mac = get_current_mac(options.interface)
     print("Current MAC = " + str(current_mac))
     generated_mac = rand_mac_generator()
@@ -66,4 +67,3 @@ for i in range(0, int(options.times)):
     print("Current IPAddress = " + str(current_ipaddress))
     print("-------------------WAITING" +" "+str(options.wait)+" "+"Seconds-------------------------------")
     time.sleep(int(options.wait))
-
