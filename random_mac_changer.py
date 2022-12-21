@@ -4,9 +4,13 @@ import subprocess
 import optparse
 import re
 from randmac import RandMac
-example_mac = "00:00:00:00:00:00"
-generated_mac = RandMac(example_mac)
 
+
+
+def rand_mac_generator():
+    example_mac = "00:00:00:00:00:00"
+    generated_mac = RandMac(example_mac)
+    return generated_mac
 
 def get_arguments():
     parser = optparse.OptionParser()
@@ -35,6 +39,8 @@ def get_current_mac(interface):
 options = get_arguments()
 current_mac = get_current_mac(options.interface)
 print("Current MAC = " + str(current_mac))
+
+generated_mac = rand_mac_generator()
 
 change_mac(options.interface,str(generated_mac))
 
