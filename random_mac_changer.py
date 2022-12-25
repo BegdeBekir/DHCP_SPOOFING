@@ -39,12 +39,14 @@ def get_current_mac(interface):
 
 def get_current_ipv4(interface):
     ifconfig_result = subprocess.check_output(["ifconfig", interface])
-    ip_address_search_result = re.search(r"\d\d\d.\d\d\d.\d\d.\d\d\d", str(ifconfig_result))
+    ip_address_search_result = re.search(r"\d\d.\d.\d.\d\d", str(ifconfig_result))
 
     if ip_address_search_result:
         return ip_address_search_result.group(0)
     else:
         print("[-] Could not read IP address.")
+
+
 
 
 options = get_arguments()
@@ -65,9 +67,7 @@ for i in range(1, int(options.times)+1):
 
     current_ipaddress = get_current_ipv4(options.interface)
     print("Current IPAddress = " + str(current_ipaddress))
-    print("-------------------WAITING" +" "+str(options.wait)+" "+"Seconds-------------------------------")
-    time.sleep(int(options.wait))
-    current_ipaddress = get_current_ipv4(options.interface)
-    print("Current IPAddress = " + str(current_ipaddress))
+
+
     print("-------------------WAITING" +" "+str(options.wait)+" "+"Seconds-------------------------------")
     time.sleep(int(options.wait))
