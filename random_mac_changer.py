@@ -39,7 +39,7 @@ def get_current_mac(interface):
 
 def get_current_ipv4(interface):
     ifconfig_result = subprocess.check_output(["ifconfig", interface])
-    ip_address_search_result = re.search(r"\d\d.\d.\d.\d\d", str(ifconfig_result))
+    ip_address_search_result = re.search(r"\d\d.\d\d.\d\d.\d\d", str(ifconfig_result))
 
     if ip_address_search_result:
         return ip_address_search_result.group(0)
