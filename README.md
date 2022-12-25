@@ -12,8 +12,8 @@
 <p>-w WAIT, --wait=WAIT  After how many seconds should it change IP address and MAC address</p>
 <p>address</p>                  
 <p>How to use tools</p>
-<p>python3 mac_changer.py -i eth0 -t 10 -w 10</p>
-<p>python mac_changer.py -i eth0 -t 10 -w 10 </p>
+<p>python3 random_mac_changer.py -i eth0 -t 10 -w 10</p>
+<p>python random_mac_changer.py -i eth0 -t 10 -w 10 </p>
 <hr>
 <h3>What did i learn</h3>
 <p>How to use subprocess in python</p>
